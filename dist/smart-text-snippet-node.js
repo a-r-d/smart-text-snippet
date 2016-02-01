@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 function smartTextSnippet() {
   
   var _options = { 
@@ -50,4 +52,8 @@ function smartTextSnippet() {
     chunk: chunk
   };
 }
+
+
+
+module.exports = smartTextSnippet();
 

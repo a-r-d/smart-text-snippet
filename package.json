@@ -1,0 +1,35 @@
+{
+  "name": "smart-text-snippet",
+  "version": "1.0.0",
+  "description": "Create shortened or chunked text snippets from longer text while leaving sentences intact",
+  "main": "dist/smart-text-snippet-node.js",
+  "scripts": {
+    "build": "node lib/build-modules.js",
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-r-d/smart-text-snippet.git"
+  },
+  "keywords": [
+    "text",
+    "snippet",
+    "text-snippet",
+    "text-abbreviate",
+    "shorten-text",
+    "review-shortener"
+  ],
+  "author": "Aaron Decker <aaron@ard.ninja>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-r-d/smart-text-snippet/issues"
+  },
+  "homepage": "https://github.com/a-r-d/smart-text-snippet#readme",
+  "dependencies": {
+    "lodash": "^4.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

@@ -1,22 +1,22 @@
-var _ = require('lodash');
-
+!(function(window){
 function smartTextSnippet() {
   
   var _options = { 
     len: 100,
     breakChars: [' ', '\n', '\r\n', '"', '<'],
-    stopChar: '.',
-    stopAtParagraphEnd: true
+    stopChars: ['.', '!', '?']
   }
 
+  // Dependency: lodash
   function getOpts(options) {
-    return _.assign(options || {}, _options); 
+    return _.assign(_options, options || {}); 
   }
     
   function snip(text, options) {
     var buffer = [],
       index = 0;
     options = getOpts(options);
+    console.log(options);
 
     if(!text || text.length <= options.length) {
       return text;
@@ -25,11 +25,9 @@ function smartTextSnippet() {
     for(index = 0; index < text.length; index++) {
       buffer.push(text[index]);
       if(buffer.length > options.len && 
-        buffer[index - 1] === options.stopChar) { // did we hit a stop char 
-          // did we hit a stop char at end of paragraph?
-          if(options.stopAtParagraphEnd && 
-            ~options.breakChars.indexOf(review[index])) {
-              continue;
+        ~options.stopChars.indexOf(buffer[index - 1])) { 
+          if(!~options.breakChars.indexOf(text[index])) {
+            continue;
           }
 
           buffer.pop();
@@ -38,6 +36,7 @@ function smartTextSnippet() {
           }
           break;
         }
+    
     }
     
     return buffer.join('');
@@ -54,7 +53,6 @@ function smartTextSnippet() {
 }
 
 
-module.exports = smartTextSnippet()
-
-
+window.SmartTextSnippet = smartTextSnippet();
+})(window);
 
