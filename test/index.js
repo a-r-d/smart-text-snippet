@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var fs = require('fs');
 
 var sample1 = fs.readFileSync('./test/lorem-ipsum-1.txt', 'utf8');
+var sample2 = fs.readFileSync('./test/lots-of-periods.txt', 'utf8');
 
 describe('smartTextSnippet', function() {
   describe('snip', function () {
@@ -28,6 +29,12 @@ describe('smartTextSnippet', function() {
 
     });
    
-  
+    it('should create a snippet with multiple periods being respected', function() {
+      var res = smartTextSnippet.snip(sample2, {len: 200});
+      expect(res).to.not.be.null;
+      console.log(res);
+      expect(res.length).to.be.below(sample2.length);
+
+    });
   });
 });

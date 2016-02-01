@@ -10,14 +10,13 @@ function smartTextSnippet() {
 
   // Dependency: lodash
   function getOpts(options) {
-    return _.assign(_options, options || {}); 
+    return _.assign({}, _options, options || {}); 
   }
     
   function snip(text, options) {
     var buffer = [],
       index = 0;
     options = getOpts(options);
-    console.log(options);
 
     if(!text || text.length <= options.length) {
       return text;
@@ -26,10 +25,8 @@ function smartTextSnippet() {
     for(index = 0; index < text.length; index++) {
       buffer.push(text[index]);
       if(buffer.length > options.len && 
-        ~options.stopChars.indexOf(buffer[index - 1])) { 
-          if(!~options.breakChars.indexOf(text[index])) {
-            continue;
-          }
+        ~options.stopChars.indexOf(buffer[index - 1]) &&  
+        ~options.breakChars.indexOf(text[index])) {
 
           buffer.pop();
           if(options.appendToEnd) {
