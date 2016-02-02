@@ -10,20 +10,23 @@ function smartTextSnippet() {
   function getOpts(options) {
     return _.assign({}, _options, options || {}); 
   }
-    
-  function snip(text, options) {
+
+  function getSnippet(text, startPos, options) {
     var buffer = [],
-      index = 0;
-    options = getOpts(options);
+      index = startPos;
 
     if(!text || text.length <= options.length) {
       return text;
     }
 
-    for(index = 0; index < text.length; index++) {
+    if(options.len >= text.length - index) {
+      return text.substring(index, text.length);
+    }
+
+    for(;index < text.length; index++) {
       buffer.push(text[index]);
       if(buffer.length > options.len && 
-        ~options.stopChars.indexOf(buffer[index - 1]) &&  
+        ~options.stopChars.indexOf(text[index - 1]) &&  
         ~options.breakChars.indexOf(text[index])) {
 
           buffer.pop();
@@ -31,15 +34,30 @@ function smartTextSnippet() {
             buffer.push(options.appendToEnd);
           }
           break;
-        }
-    
+        } 
     }
     
     return buffer.join('');
+  
+  }
+    
+  function snip(text, options) {
+    return getSnippet(text, 0, getOpts(options));
   }
 
   function chunk(text, options) {
+    var chunks = [],
+      index = 0,
+      chunk = '',
+      options = getOpts(options);
 
+    while(index < text.length) {
+      chunk = getSnippet(text, index,  options);
+      index = index + chunk.length + 1;
+      chunks.push(chunk);
+    }
+
+    return chunks;
   }
 
   return {
