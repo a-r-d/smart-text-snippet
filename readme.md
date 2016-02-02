@@ -7,10 +7,11 @@ Create shortened or chunked text snippets from longer text while leaving sentenc
 Example usage
 ================
 
-Available on npm
+Available on npm or bower
 
 ```bash
 npm i smart-text-snippet
+bower i smart-text-snippet
 ```
 
 
