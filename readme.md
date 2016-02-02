@@ -1,10 +1,60 @@
 smart-text-snippet
 ===================
 
-Create shortened or chunked text snippets from longer text while leaving sentences intact.
+Create shortened or chunked text snippets from longer text while leaving sentences intact. Min length is configurable.
+
+
+Example usage
+================
+
+Available on npm
+
+```bash
+npm i smart-text-snippet
+```
+
+
+```javscript
+
+var snippets = require('smart-text-snippet');
+
+var superLongString = 'I will be a very long string...';
+
+var shortSnippet = snippets.snip(superLongString, {len: 150});
+// returns the first complete sentence with length at least 150 chars.
+
+```
+
+
+Visual example: 
+
+| Input | Output | 
+| ----- | ------ |
+|``` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at tristique ipsum, commodo tristique augue. Fusce maximus mi id justo accumsan tempor. Pellentesque sem ante, mollis in imperdiet eu, maximus sed odio. Praesent ultricies aliquam orci, sit amet tempor diam eleifend sed. Fusce euismod nisl sed erat aliquet, eu commodo leo finibus. Donec massa nibh, auctor sit amet dignissim quis, eleifend non nibh. Aliquam convallis vehicula velit eget tincidunt. Nunc eleifend, augue nec maximus pharetra, odio justo facilisis mi, sit amet feugiat mauris urna ut risus. Nulla facilisi. Nulla facilisi. Phasellus efficitur tempor posuere. Maecenas scelerisque lacus elit, eu luctus nisl tempus nec. Quisque sollicitudin nibh a dolor pretium, tempor aliquet nulla malesuada. Suspendisse ultrices ullamcorper est, quis lobortis mi blandit eget. Vivamus tincidunt convallis nisi sit amet dignissim. ```|```Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at tristique ipsum, commodo tristique augue.```|
+
 
 
 Features
 ==========
 
-This module has a browser version and a node version, check /dist. 
+This module supports multiple module loading systems systems:
+
+ - Vanilla browser JS 'dist/smart-text-snippet-browser.js'
+ - Node style 'dist/smart-text-snippet-node.js' (this is what the npm module exports)
+ - AMD style 'dist/smart-text-snippet-amd.js'
+
+
+Dependencies
+=============
+
+ - Lodash v4 (earlier version may work).
+
+
+Tests
+=====
+
+Tests run with node on mocha and chai. 
+
+```bash
+mocha test
+```
