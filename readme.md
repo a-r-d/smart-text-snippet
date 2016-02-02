@@ -36,7 +36,8 @@ Visual example:
 Methods
 ========
 
-####.snip(string, options)
+###.snip(string, options)
+####returns string
 
 Snips the first part of the text with a min length. Returns only complete sentences or the entire input.
 
@@ -48,6 +49,13 @@ var _options = {
   stopChars: ['.', '!', '?']                  // characters used as sentence enders.
 }
 ```
+
+
+###.chunk(string, options)
+####returns array of strings
+
+Snips up an large string into smaller strings of snippets of complete sentences. Good for infinite scroll or paging applications.
+
 
 
 
