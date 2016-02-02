@@ -14,7 +14,7 @@ npm i smart-text-snippet
 ```
 
 
-```javscript
+```javascript
 
 var snippets = require('smart-text-snippet');
 
@@ -31,6 +31,23 @@ Visual example:
 | Input | Output | 
 | ----- | ------ |
 |``` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at tristique ipsum, commodo tristique augue. Fusce maximus mi id justo accumsan tempor. Pellentesque sem ante, mollis in imperdiet eu, maximus sed odio. Praesent ultricies aliquam orci, sit amet tempor diam eleifend sed. Fusce euismod nisl sed erat aliquet, eu commodo leo finibus. Donec massa nibh, auctor sit amet dignissim quis, eleifend non nibh. Aliquam convallis vehicula velit eget tincidunt.  ```|```Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at tristique ipsum, commodo tristique augue.```|
+
+
+Methods
+========
+
+####.snip(string, options)
+
+Snips the first part of the text with a min length. Returns only complete sentences or the entire input.
+
+Options (defaults):
+```javascript
+var _options = { 
+  len: 100,                                   // min length of the snippet
+  breakChars: [' ', '\n', '\r\n', '"', '<'],  // characters searched for after a stopChar is found
+  stopChars: ['.', '!', '?']                  // characters used as sentence enders.
+}
+```
 
 
 
