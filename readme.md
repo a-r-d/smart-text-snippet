@@ -1,5 +1,7 @@
 smart-text-snippet
 ===================
+[![Build Status](https://travis-ci.org/a-r-d/smart-text-snippet.svg?branch=master)](https://travis-ci.org/a-r-d/smart-text-snippet)
+[![NPM](https://nodei.co/npm/smart-text-snippet.png)](https://nodei.co/npm/smart-text-snippet/)
 
 Create shortened or chunked text snippets from longer text while leaving sentences intact. Min length is configurable.
 
